@@ -1,0 +1,11 @@
+{
+  "extends": "astro/tsconfigs/strictest",
+  "include": ["src"],
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "ES2022",
+    "outDir": "./dist",
+    "target": "ES2021",
+    "strictNullChecks": true
+  }
+}
