@@ -1,6 +1,6 @@
 {
   "name": "@eliancodes/brutal-ui",
-  "version": "0.1.0",
+  "version": "0.1.0-beta",
   "description": "The brutalist UI components package, built for extendability and compatibility",
   "repository": {
     "type": "git",
