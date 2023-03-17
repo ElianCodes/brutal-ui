@@ -1,0 +1,42 @@
+{
+  "name": "@eliancodes/brutal-ui",
+  "version": "0.1.0-beta",
+  "description": "The brutalist UI components package, built for extendability and compatibility",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElianCodes/brutal-ui.git"
+  },
+  "type": "module",
+  "main": "index.ts",
+  "module": "index.ts",
+  "exports": {
+    ".": {
+      "import": "./index.ts",
+      "require": null
+    }
+  },
+  "types": "index.d.ts",
+  "files": [
+    "index.ts",
+    "index.d.ts",
+    "src"
+  ],
+  "keywords": [
+    "astro",
+    "brutal",
+    "brutalist"
+  ],
+  "author": {
+    "name": "Elian Van Cutsem",
+    "email": "hello@elian.codes",
+    "url": "https://www.elian.codes"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ElianCodes/brutal-ui/issues"
+  },
+  "homepage": "https://github.com/ElianCodes/brutal-ui#readme",
+  "devDependencies": {
+    "astro": "^2.1.3"
+  }
+}
