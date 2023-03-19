@@ -7,9 +7,10 @@ declare module '@eliancodes/brutal-ui' {
 
   export function Button(props: ButtonProps): any;
 
-  type CardProps = {
+  type DefaultColorProps = {
     color?: string;
   }
 
-  export function Card(props: CardProps): any;
+  export function Card(props: DefaultColorProps): any;
+  export function Pill(props: DefaultColorProps): any;
 }
