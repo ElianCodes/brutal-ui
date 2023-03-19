@@ -6,7 +6,7 @@ import colors from '../config/colors.json';
 
 if (Astro.props.color === undefined) {
   Astro.props.color =
-    colors.colors[Math.floor(Math.random() * colors.colors.length)];
+    colors[Math.floor(Math.random() * colors.length)];
 }
 
 const { color } = Astro.props;

@@ -13,4 +13,10 @@ declare module '@eliancodes/brutal-ui' {
 
   export function Card(props: DefaultColorProps): any;
   export function Pill(props: DefaultColorProps): any;
+
+  type BrutalConfiguration = {
+    colors: string[]
+  };
+
+  export function Config(): BrutalConfiguration;
 }
