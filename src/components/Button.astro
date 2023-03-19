@@ -12,14 +12,14 @@ if (Astro.props.target === undefined) {
 }
 
 if (Astro.props.color === undefined) {
-  Astro.props.color = colors.colors[Math.floor(Math.random() * colors.colors.length)];
-;
+  Astro.props.color =
+    colors.colors[Math.floor(Math.random() * colors.colors.length)];
 }
 
 const { href, target, color } = Astro.props;
-
 ---
-<style define:vars={{ color: color}}>
+
+<style define:vars={{ color: color }}>
   a.brutal-btn {
     filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
     background-color: white;
@@ -33,7 +33,7 @@ const { href, target, color } = Astro.props;
 <a
   href={href}
   target={target}
-  class="brutal-btn sanchez inline-block py-2 px-4 border-2 border-black transition-all ease-in-out duration-150"
+  class='brutal-btn sanchez inline-block py-2 px-4 border-2 border-black transition-all ease-in-out duration-150'
 >
   <slot />
 </a>
