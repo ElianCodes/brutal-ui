@@ -37,6 +37,6 @@
   },
   "homepage": "https://github.com/ElianCodes/brutal-ui#readme",
   "devDependencies": {
-    "astro": "^2.6.1"
+    "astro": "^4.0.6"
   }
 }
