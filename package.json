@@ -36,7 +36,15 @@
     "url": "https://github.com/ElianCodes/brutal-ui/issues"
   },
   "homepage": "https://github.com/ElianCodes/brutal-ui#readme",
+  "scripts": {
+    "changeset:add": "changeset add",
+    "changeset:version": "changeset version",
+    "changeset:release": "changeset publish"
+  },
   "devDependencies": {
-    "astro": "^2.6.1"
+    "astro": "^4.0.6"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.27.1"
   }
 }

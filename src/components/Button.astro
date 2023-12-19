@@ -2,7 +2,7 @@
 interface Props {
   href: string;
   target?: '_blank' | '_self';
-  color?: string;
+  color?: string | undefined;
 }
 
 import colors from '../config/colors.json';
@@ -23,6 +23,13 @@ const { href, target, color } = Astro.props;
   a.brutal-btn {
     filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
     background-color: white;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 2px solid black;
+    transition: all;
+    transition-duration: 0.5s;
+    animation: ease-in-out;
+    font-family: 'Sanchez', serif;
   }
   a.brutal-btn:hover {
     filter: drop-shadow(3px 3px 0 rgb(0 0 0 / 1));
@@ -33,7 +40,7 @@ const { href, target, color } = Astro.props;
 <a
   href={href}
   target={target}
-  class='brutal-btn sanchez inline-block py-2 px-4 border-2 border-black transition-all ease-in-out duration-150'
+  class='brutal-btn'
 >
   <slot />
 </a>
