@@ -1,22 +1,16 @@
-declare module '@eliancodes/brutal-ui' {
-  type ButtonProps = {
-    href: string;
-    target?: '_blank' | '_self';
-    color?: string;
-  };
+declare module "@eliancodes/brutal-ui" {
+	type DefaultColorProps = {
+		color?: string;
+	};
 
-  export function Button(props: ButtonProps): any;
+	export function Button(props: DefaultColorProps): any;
+	export function ActualButton(props: DefaultColorProps): any;
+	export function Card(props: DefaultColorProps): any;
+	export function Pill(props: DefaultColorProps): any;
 
-  type DefaultColorProps = {
-    color?: string;
-  };
+	type BrutalConfiguration = {
+		colors: string[];
+	};
 
-  export function Card(props: DefaultColorProps): any;
-  export function Pill(props: DefaultColorProps): any;
-
-  type BrutalConfiguration = {
-    colors: string[]
-  };
-
-  export function Config(): BrutalConfiguration;
+	export function Config(): BrutalConfiguration;
 }

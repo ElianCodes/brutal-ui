@@ -1,5 +1,5 @@
 ---
-interface Props extends HTMLAttributes<'a'> {
+interface Props extends HTMLAttributes<'button'> {
   color?: string | undefined;
 }
 
@@ -14,7 +14,7 @@ const { color, ...rest } = Astro.props;
 ---
 
 <style define:vars={{ color: color }}>
-  a.brutal-btn {
+  btn.brutal-btn {
     filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
     background-color: white;
     display: inline-block;
@@ -25,7 +25,7 @@ const { color, ...rest } = Astro.props;
     animation: ease-in-out;
     font-family: 'Sanchez', serif;
   }
-  a.brutal-btn:hover {
+  btn.brutal-btn:hover {
     filter: drop-shadow(3px 3px 0 rgb(0 0 0 / 1));
     background-color: var(--color);
   }

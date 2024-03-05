@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.5
+
+### Patch Changes
+
+- add ActualButton component
+
 ## 0.2.4
 
 ### Patch Changes
