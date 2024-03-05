@@ -1,22 +1,16 @@
 ---
-interface Props {
-  href: string;
-  target?: '_blank' | '_self';
+interface Props extends HTMLAttributes<'button'> {
   color?: string | undefined;
 }
 
+import type { HTMLAttributes } from 'astro/types';
 import colors from '../config/colors.json';
 
-if (Astro.props.target === undefined) {
-  Astro.props.target = '_self';
-}
-
 if (Astro.props.color === undefined) {
-  Astro.props.color =
-    colors[Math.floor(Math.random() * colors.length)];
+  Astro.props.color = colors[Math.floor(Math.random() * colors.length)];
 }
 
-const { href, target, color } = Astro.props;
+const { color, ...rest } = Astro.props;
 ---
 
 <style define:vars={{ color: color }}>
@@ -37,10 +31,6 @@ const { href, target, color } = Astro.props;
   }
 </style>
 
-<a
-  href={href}
-  target={target}
-  class='brutal-btn'
->
+<a {...rest} class='brutal-btn'>
   <slot />
 </a>
