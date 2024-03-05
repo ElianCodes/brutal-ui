@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.6
+
+### Patch Changes
+
+- button props
+
 ## 0.2.5
 
 ### Patch Changes
