@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strictest",
-  "include": ["src"],
+  "include": [".astro/types.d.ts", "src", "index.ts", "index.d.ts"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "allowJs": true,
     "module": "ES2022",
