@@ -49,10 +49,15 @@
     "provenance": true
   },
   "scripts": {
+    "changeset": "changeset",
+    "changeset:add": "changeset add",
+    "changeset:version": "changeset version",
+    "changeset:release": "changeset publish",
     "check": "astro check",
     "pack:check": "npm pack --dry-run"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.7",
     "@astrojs/check": "^0.9.8",
     "astro": "^6.1.1",
     "typescript": "^5.9.3"
