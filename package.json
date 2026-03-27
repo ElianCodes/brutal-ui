@@ -12,8 +12,12 @@
   "module": "index.ts",
   "exports": {
     ".": {
-      "import": "./index.ts",
-      "require": null
+      "types": "./index.d.ts",
+      "import": "./index.ts"
+    },
+    "./config": {
+      "types": "./index.d.ts",
+      "import": "./src/config/index.ts"
     }
   },
   "types": "index.d.ts",
@@ -25,7 +29,10 @@
   "keywords": [
     "astro",
     "brutal",
-    "brutalist"
+    "brutalist",
+    "design-system",
+    "components",
+    "ui"
   ],
   "author": {
     "name": "Elian Van Cutsem",
