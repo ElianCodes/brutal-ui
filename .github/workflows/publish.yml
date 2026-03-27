@@ -59,6 +59,11 @@ jobs:
           echo "previous_version=$PREVIOUS_VERSION" >> "$GITHUB_OUTPUT"
           echo "next_version=$NEXT_VERSION" >> "$GITHUB_OUTPUT"
 
+      - name: Publish to npm
+        run: pnpm publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Commit release version
         env:
           VERSION: ${{ steps.version_bump.outputs.next_version }}
@@ -68,8 +73,3 @@ jobs:
           git add package.json package-lock.json pnpm-lock.yaml
           git commit -m "chore: release v$VERSION [skip ci]"
           git push
-
-      - name: Publish to npm
-        run: pnpm publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
