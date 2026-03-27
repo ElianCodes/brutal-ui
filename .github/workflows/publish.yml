@@ -17,6 +17,7 @@ jobs:
     permissions:
       contents: write
       id-token: write
+      pull-requests: write
 
     steps:
       - name: Checkout
@@ -44,45 +45,21 @@ jobs:
           pnpm run check
           pnpm run pack:check
 
-      - name: Bump patch version
-        id: version_bump
-        shell: bash
-        run: |
-          PACKAGE_NAME=$(node -p "require('./package.json').name")
-          PREVIOUS_VERSION=$(node -p "require('./package.json').version")
-          npm version patch --no-git-tag-version
-          pnpm install --lockfile-only
-          npm install --package-lock-only
-          NEXT_VERSION=$(node -p "require('./package.json').version")
-
-          echo "package_name=$PACKAGE_NAME" >> "$GITHUB_OUTPUT"
-          echo "previous_version=$PREVIOUS_VERSION" >> "$GITHUB_OUTPUT"
-          echo "next_version=$NEXT_VERSION" >> "$GITHUB_OUTPUT"
-
-      - name: Publish to npm
-        run: pnpm publish --no-git-checks
+      - name: Create release pull request or publish
+        id: changesets
+        uses: changesets/action@v1
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Commit release version
-        env:
-          VERSION: ${{ steps.version_bump.outputs.next_version }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add package.json package-lock.json pnpm-lock.yaml
-          git commit -m "chore: release v$VERSION [skip ci]"
-          git push
-
-      - name: Create git tag
-        env:
-          VERSION: ${{ steps.version_bump.outputs.next_version }}
-        run: |
-          git tag "v$VERSION"
-          git push origin "v$VERSION"
+        with:
+          version: |
+            pnpm changeset:version
+          publish: pnpm changeset:release
 
       - name: Create GitHub release
+        if: steps.changesets.outputs.published == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VERSION: ${{ steps.version_bump.outputs.next_version }}
-        run: gh release create "v$VERSION" --generate-notes --title "v$VERSION"
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          gh release create "v$VERSION" --generate-notes --title "v$VERSION"

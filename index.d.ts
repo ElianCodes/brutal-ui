@@ -1,16 +1,7 @@
-declare module "@eliancodes/brutal-ui" {
-	type DefaultColorProps = {
-		color?: string;
-	};
-
-	export function Button(props: DefaultColorProps): any;
-	export function ActualButton(props: DefaultColorProps): any;
-	export function Card(props: DefaultColorProps): any;
-	export function Pill(props: DefaultColorProps): any;
-
-	type BrutalConfiguration = {
-		colors: string[];
-	};
-
-	export function Config(): BrutalConfiguration;
-}
+export { default as Button } from './src/components/Button.astro';
+export { default as ActualButton } from './src/components/ActualButton.astro';
+export { default as Card } from './src/components/Card.astro';
+export { default as Pill } from './src/components/Pill.astro';
+export { default as Config } from './src/config';
+export { brutalTokens, colors, variantColors } from './src/config';
+export type { BrutalConfig, BrutalSize, BrutalVariant } from './src/config';

@@ -1,15 +1,31 @@
 ---
-interface Props {
-  color?: string | undefined;
-}
-import colors from '../config/colors.json';
+import type { HTMLAttributes } from 'astro/types';
+import { type BrutalVariant } from '../config';
+import { cn, resolveColor } from '../utils/styles';
 
-if (Astro.props.color === undefined) {
-  Astro.props.color =
-    colors[Math.floor(Math.random() * colors.length)];
+interface Props extends HTMLAttributes<'div'> {
+  color?: string;
+  variant?: BrutalVariant;
+  padded?: boolean;
+  interactive?: boolean;
 }
 
-const { color } = Astro.props;
+const {
+  color: customColor,
+  variant = 'neutral',
+  padded = true,
+  interactive = false,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const color = resolveColor(customColor, variant, 'neutral');
+const classes = cn(
+  'brutal-card',
+  padded && 'brutal-card--padded',
+  interactive && 'brutal-card--interactive',
+  className,
+);
 ---
 
 <style define:vars={{ color: color }}>
@@ -18,16 +34,33 @@ const { color } = Astro.props;
     border-radius: 0.5rem;
     border: 3px solid black;
     filter: drop-shadow(7px 7px 0 rgb(0 0 0 / 1));
-    transition: all;
-    padding: 1rem;
-    transition-duration: 0.5s;
-    animation: ease-in-out;
+    color: black;
+    transition:
+      transform 150ms ease,
+      filter 150ms ease,
+      background-color 150ms ease;
   }
-  div.brutal-card:hover {
+
+  div.brutal-card--padded {
+    padding: 1rem;
+  }
+
+  div.brutal-card--interactive:hover {
     filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
+  }
+
+  div.brutal-card--interactive:focus-within {
+    outline: 3px solid black;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    div.brutal-card {
+      transition: none;
+    }
   }
 </style>
 
-<div class='brutal-card'>
+<div {...rest} class={classes}>
   <slot />
 </div>

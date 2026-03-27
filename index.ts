@@ -3,3 +3,5 @@ export { default as ActualButton } from './src/components/ActualButton.astro';
 export { default as Card } from './src/components/Card.astro';
 export { default as Pill } from './src/components/Pill.astro';
 export { default as Config } from './src/config';
+export { brutalTokens, colors, variantColors } from './src/config';
+export type { BrutalConfig, BrutalSize, BrutalVariant } from './src/config';
