@@ -73,3 +73,16 @@ jobs:
           git add package.json package-lock.json pnpm-lock.yaml
           git commit -m "chore: release v$VERSION [skip ci]"
           git push
+
+      - name: Create git tag
+        env:
+          VERSION: ${{ steps.version_bump.outputs.next_version }}
+        run: |
+          git tag "v$VERSION"
+          git push origin "v$VERSION"
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.version_bump.outputs.next_version }}
+        run: gh release create "v$VERSION" --generate-notes --title "v$VERSION"
