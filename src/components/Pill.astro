@@ -23,7 +23,7 @@ const classes = cn('brutal-pill', `brutal-pill--${size}`, className);
 
 <style define:vars={{ color: color }}>
   span.brutal-pill {
-    filter: drop-shadow(3px 3px 0 rgb(0 0 0 / 1));
+    box-shadow: 3px 3px 0 rgb(0 0 0 / 1);
     user-select: none;
     background-color: white;
     color: black;
@@ -35,7 +35,7 @@ const classes = cn('brutal-pill', `brutal-pill--${size}`, className);
     padding: 0.25rem 0.75rem;
     transition:
       transform 150ms ease,
-      filter 150ms ease,
+      box-shadow 150ms ease,
       background-color 150ms ease;
     font-size: small;
     font-weight: 700;
@@ -57,7 +57,7 @@ const classes = cn('brutal-pill', `brutal-pill--${size}`, className);
   }
 
   span.brutal-pill:hover {
-    filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
+    box-shadow: 5px 5px 0 rgb(0 0 0 / 1);
     background-color: var(--color);
   }
 

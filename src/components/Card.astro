@@ -33,11 +33,11 @@ const classes = cn(
     background-color: var(--color);
     border-radius: 0.5rem;
     border: 3px solid black;
-    filter: drop-shadow(7px 7px 0 rgb(0 0 0 / 1));
+    box-shadow: 7px 7px 0 rgb(0 0 0 / 1);
     color: black;
     transition:
       transform 150ms ease,
-      filter 150ms ease,
+      box-shadow 150ms ease,
       background-color 150ms ease;
   }
 
@@ -46,7 +46,7 @@ const classes = cn(
   }
 
   div.brutal-card--interactive:hover {
-    filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
+    box-shadow: 5px 5px 0 rgb(0 0 0 / 1);
   }
 
   div.brutal-card--interactive:focus-within {
