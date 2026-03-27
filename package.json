@@ -7,6 +7,7 @@
     "url": "git+https://github.com/ElianCodes/brutal-ui.git"
   },
   "type": "module",
+  "packageManager": "pnpm@10.32.1",
   "main": "index.ts",
   "module": "index.ts",
   "exports": {
@@ -36,15 +37,21 @@
     "url": "https://github.com/ElianCodes/brutal-ui/issues"
   },
   "homepage": "https://github.com/ElianCodes/brutal-ui#readme",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
-    "changeset:add": "changeset add",
-    "changeset:version": "changeset version",
-    "changeset:release": "changeset publish"
+    "check": "astro check",
+    "pack:check": "npm pack --dry-run"
   },
   "devDependencies": {
-    "astro": "^4.0.6"
+    "@astrojs/check": "^0.9.8",
+    "astro": "^6.1.1",
+    "typescript": "^5.9.3"
   },
-  "dependencies": {
-    "@changesets/cli": "^2.27.1"
-  }
+  "peerDependencies": {
+    "astro": "^6.0.0"
+  },
+  "dependencies": {}
 }
