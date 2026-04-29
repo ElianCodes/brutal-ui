@@ -57,13 +57,12 @@
     "pack:check": "npm pack --dry-run"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "@changesets/cli": "^2.29.7",
-    "@astrojs/check": "^0.9.8",
-    "astro": "^6.1.1",
+    "astro": "^6.1.10",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "astro": "^6.0.0"
-  },
-  "dependencies": {}
+  }
 }
